@@ -6,7 +6,7 @@
 
 
 
-###                          PREDICTION USING SNPs MARKERS                              ###
+###                          PREDICTION USING MITE/DTX MARKERS                              ###
 ########################### 1st part: PREDICTION ACORSS POPULATION ########################
 library(data.table)
 library(genio)
@@ -22,7 +22,7 @@ all.phenotypes.COR<- NULL
 
 
 
-#--- load the marker matrices. We use only the mite here -----------------------------
+#--- load the marker matrices. We use only the mite/DTX here -----------------------------
 load("Three_Markers_Original_Matrices.RData")
 
 #--- input phenotypes
