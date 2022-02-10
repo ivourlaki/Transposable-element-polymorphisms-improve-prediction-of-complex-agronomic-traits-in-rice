@@ -1,5 +1,5 @@
 # Transposable element polymorphisms improve prediction of complex agronomic traits in rice
-**Repository for scripts and data material related to the paper "Transposable element polymorphisms improve prediction of complex agronomic traits in rice".**
+**Scripts and data material related to the paper "Transposable element polymorphisms improve prediction of complex agronomic traits in rice".**
 
 *Ioanna-Theoni Vourlaki, Raúl Castanera, Sebastián E. Ramos-Onsins, Josep M. Casacuberta, Miguel Pérez-Enciso*
 
