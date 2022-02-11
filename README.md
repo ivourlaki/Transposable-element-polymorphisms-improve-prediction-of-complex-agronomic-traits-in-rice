@@ -8,7 +8,7 @@
   * BayesC_PREDICTION.MODEL.R : An R script for running genomic prediction for within and across population analysis, applying method "BayesC".   
   * RKHS_PREDICTION.MODEL.R :   An R script for running genomic prediction for within and across population analysis, applying method "RKHS".
   * RKHS_GENETIC_VARIANCE_INFERENCE.R : An R script for genetic variance inference, within and across population, applying method "RKHS".    
-   ### Data Material
+   ### Data-Material
    * all.phenotypes.csv : A file of the 11 phenotypes and their corresponding phenotypic values for 738 assecions originated by 5 groups in csv format. 
    * iris_pedigree.csv :  A file of the 11 phenotypes and their corresponding values of their improved varieties, in csv format.
    * snps. RData : A SNPs matrix in R format.
