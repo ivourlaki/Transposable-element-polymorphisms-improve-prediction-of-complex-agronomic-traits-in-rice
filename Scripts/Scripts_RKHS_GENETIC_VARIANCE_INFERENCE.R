@@ -14,6 +14,11 @@ library(gridExtra)
 nIter=100000
 
 load("Additive_Matrix.RData")
+##-- Additive_Matrix.Rdata contans the below matrices:
+##-- where G_VanRadenPine1, the additive matrix for SNPs
+##-- where G_VanRadenPine2, the additive matrix for MITE/DTX
+##-- where G_VanRadenPine3, the additive matrix for RLX/RIX
+
 
 all.phenotypes.snps<- NULL
 all.phenotypes.snps.origin  <- NULL
