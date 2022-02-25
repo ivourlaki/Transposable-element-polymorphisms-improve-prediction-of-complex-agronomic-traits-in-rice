@@ -21,10 +21,6 @@ p0 = 5
 all.phenotypes.COR<- NULL
 
 
-
-#--- load the marker matrices. We use only the snps here -----------------------------
-load("Three_Markers_Original_Matrices.RData")
-
 #--- input phenotypes
 all.phenotypes <- read.csv("all.phenotypes.csv", header=TRUE)
 
