@@ -22,6 +22,8 @@ Transposable Elements Polymorphisms (TIPs) are significant sources of genetic va
    * all.phenotypes.csv : A file of the 11 phenotypes and their corresponding phenotypic values for 738 assecions originated by 5 groups in csv format. 
    * iris_pedigree.csv :  A file of the 11 phenotypes and their corresponding values of their improved varieties, in csv format.
    * snps. RData : A SNPs matrix in R format.
+   * mite_dtx.RData: Merge matrix of MITE and DTX TIPs in R format.
+   * rlx_rix.RData: Merge matrix of RLX and RIX TIPs in R format.
    * Additive_Matrix.RData : The three additive-relationship matrices for each marker (SNPs, MITE/DTX, RLX/RIX) to be used in RKHS method script. 
    * PCAs_fixed_effect.RData: A matrix in R format generating by the three markes to be used as fixed effect in any prediction script.
    
