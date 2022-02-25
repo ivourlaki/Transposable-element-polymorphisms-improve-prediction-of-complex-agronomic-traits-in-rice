@@ -21,6 +21,11 @@ nIter=100000
 
 ###  load additive matrix but use only the first one for SNPs
 load("Additive_Matrix.RData")
+##-- Additive_Matrix.Rdata contans the below matrices:
+##-- where G_VanRadenPine1, the additive matrix for SNPs
+##-- where G_VanRadenPine2, the additive matrix for MITE/DTX
+##-- where G_VanRadenPine3, the additive matrix for RLX/RIX
+
 all.phenotypes.COR<- NULL
 
 
