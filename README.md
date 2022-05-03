@@ -15,15 +15,16 @@ Transposon Insertion Polymorphisms (TIPs) are a significant source of genetic va
 
 ## Files
   ### Scripts 
-  * BayesC_PREDICTION.MODEL.R : An R script for running genomic prediction for within and across population analysis, applying method "BayesC".   
-  * RKHS_PREDICTION.MODEL.R :   An R script for running genomic prediction for within and across population analysis, applying method "RKHS".
-  * RKHS_GENETIC_VARIANCE_INFERENCE.R : An R script for genetic variance inference, within and across population, applying method "RKHS".    
+  * BayesC_PREDICTION.MODEL.R : An R script for genomic prediction within and across population analysis applying "BayesC".   
+  * RKHS_PREDICTION.MODEL.R :   An R script for genomic prediction within and across population analysis applying  "RKHS".
+  * RKHS_GENETIC_VARIANCE_INFERENCE.R : An R script for genetic variance inference within and across population applying  "RKHS".
+     
    ### Data-Material
-   * all.phenotypes.csv : A file of the 11 phenotypes and their corresponding phenotypic values for 738 assecions originated by 5 groups in csv format. 
-   * iris_pedigree.csv :  A file of the 11 phenotypes and their corresponding values of their improved varieties, in csv format.
-   * snps. RData : A SNPs matrix in R format.
-   * mite_dtx.RData: Merge matrix of MITE and DTX TIPs in R format.
-   * rlx_rix.RData: Merge matrix of RLX and RIX TIPs in R format.
+   * all.phenotypes.csv : A csv file of the 11 phenotypes and their corresponding phenotypic values for the 738 accessions. 
+   * iris_pedigree.csv :  A csv file of the 11 phenotypes and their corresponding values of their improved varieties.
+   * snps. RData : SNPs matrix in R format.
+   * mite_dtx.RData: Merged matrix of MITE and DTX TIPs in R format.
+   * rlx_rix.RData: Merged matrix of RLX and RIX TIPs in R format.
    * Additive_Matrix.RData : The three additive-relationship matrices for each marker (SNPs, MITE/DTX, RLX/RIX) to be used in RKHS method script. 
    * PCAs_fixed_effect.RData: A matrix in R format generating by the three markes to be used as fixed effect in any prediction script.
    
