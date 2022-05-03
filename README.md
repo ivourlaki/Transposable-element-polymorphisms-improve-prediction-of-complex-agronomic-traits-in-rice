@@ -16,7 +16,7 @@ Transposon Insertion Polymorphisms (TIPs) are a significant source of genetic va
   * RKHS_PREDICTION.MODEL.R :   An R script for genomic prediction within and across population analysis applying  "RKHS".
   * RKHS_GENETIC_VARIANCE_INFERENCE.R : An R script for genetic variance inference within and across population applying  "RKHS".
      
-   ### Data-Material
+   ### Data
    * all.phenotypes.csv : A csv file of the 11 phenotypes and their corresponding phenotypic values for the 738 accessions. Data transformed as described in manuscript.
    * iris_pedigree.csv :  A csv file of the 11 phenotypes and their corresponding values of their improved varieties.
    * snps. RData : SNPs matrix in R format.
