@@ -22,22 +22,14 @@ all.phenotypes.COR<- NULL
 
 
 #--- input phenotypes
-all.phenotypes <- read.csv("all.phenotypes.csv", header=TRUE)
+all.phenotypes <- read.csv("Accessions_Traits.csv", header=TRUE)
 
-
-### load PCAs FIXED EFFECTS [738,1:4]. This results by: 
-#1. merging the three markers (snps, mite/dtx, rlx/rix)
-#2. running AGH package to produce on additive matrix
-#3. then we run pca for this additive matrix [738,738] and we keep the eigenvectors for the first 4 components [738,1:4]
-load("PCAs_fixed_effect.RData")
-V1=VAR
-V1<-scale(V1,center=TRUE,scale=TRUE)
 
 
 #---- LIST WITH ALL PHENOTYPES FOR LOOP
-data<- cbind(all.phenotypes[,10:20])
+data<- cbind(all.phenotypes[,5:15])
 names<-names(data)
-list.phen<-list(all.phenotypes[,10:20])
+list.phen<-list(all.phenotypes[,5:15])
 
 somePDFPath = "BAYESCADMARO_snps.pdf"
 pdf(file=somePDFPath, onefile=TRUE)  
@@ -52,14 +44,14 @@ for (i in 1:11) {
   y<-scale(y,center=TRUE,scale=TRUE)
   
   yNA=y
-  tst=which(all.phenotypes$SNPsubsp %in% c("ADM", "ARO") & y != "NA")
-  tstADM=which(all.phenotypes$SNPsubsp %in% c("ADM") & y != "NA")
-  tstARO=which(all.phenotypes$SNPsubsp %in% c("ARO") & y != "NA")
+  tst=which(all.phenotypes$Group %in% c("ADM", "ARO") & y != "NA")
+  tstADM=which(all.phenotypes$Group %in% c("ADM") & y != "NA")
+  tstARO=which(all.phenotypes$Group %in% c("ARO") & y != "NA")
   tstNA=which(is.na(y)) #NO USED
   yNA[tst]=NA
   
   
-  fm1 = BGLR(y=yNA,ETA=list(ETA01=list(X=V1,model="FIXED"),ETA1=list(X=snps, model='BayesC', probIn=pi, counts=p0)), nIter=nIter,saveAt=sprintf("./fmgBAYESCaroadmsnps_y%.0f_",i),verbose=F)
+  fm1 = BGLR(y=yNA,ETA=list(ETA1=list(X=snps, model='BayesC', probIn=pi, counts=p0)), nIter=nIter,saveAt=sprintf("./fmgBAYESCaroadmsnps_y%.0f_",i),verbose=F)
   
   corel1=cor(fm1$yHat[tst], y[tst])
   
@@ -112,26 +104,17 @@ pi = 0.01
 p0 = 5
 all.phenotypes.COR<- NULL
 
-#--- load the marker matrices 
-load("Three_Markers_Original_Matrices.RData")
 
 
 ## input new varieties with phenotypes
-iris_pedigree <- read.csv("iris_pedigree.csv", header=TRUE)
-all.phenotypes <- read.csv("all.phenotypes.csv", header=TRUE)
+all.phenotypes <- read.csv("Accessions_Traits.csv", header=TRUE)
 
-### load PCAs FIXED EFFECTS [738,1:4]. This results by: 
-#1. merging the three markers (snps, mite/dtx, rlx/rix)
-#2. running AGH package to produce on additive matrix
-#3. then we run pca for this additive matrix [738,738] and we keep the eigenvectors for the first 4 components [738,1:4]
-load("PCAs_fixed_effect.RData")
-V1=VAR
-V1<-scale(V1,center=TRUE,scale=TRUE)
+
 
 #---- FOR PHENOTYPES
-data<- cbind(iris_pedigree[,7:17])
+data<- cbind(all.phenotypes[,5:15])
 names<-names(data)
-list.phen<-list(iris_pedigree[,7:17])
+list.phen<-list(all.phenotypes[,5:15])
 
 
 somePDFPath = "bayesCIND_snps.pdf"
@@ -145,7 +128,7 @@ for (i in 1:11) {
   y<-(unlist(list.phen[[1]][i]))
   y<-scale(y,center=TRUE,scale=TRUE)
   yNA=y
-  tst=which(all.phenotypes$SNPsubsp == "IND" & iris_pedigree$Status_with_Pedigree.plus.knowledge == "I" &  y != "NA") 
+  tst=which(all.phenotypes$Group == "IND" & all.phenotypes$Status == "I" &  y != "NA") 
   tstNA=which(is.na(y))
   yNA[tst]=NA
   
