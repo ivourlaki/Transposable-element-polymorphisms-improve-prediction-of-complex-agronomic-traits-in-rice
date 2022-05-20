@@ -1,6 +1,3 @@
-# Comments
-- In code eg BayesC_SNPs_PREDICTION_MODEL.R you mention files not available eg Three_Markers_Original_Matrices.RData
-- In RKHS script, what is G_VanRadenPine1? Not defined
 
 # Transposable element polymorphisms improve prediction of complex agronomic traits in rice
 
@@ -17,11 +14,9 @@ Transposon Insertion Polymorphisms (TIPs) are a significant source of genetic va
   * RKHS_GENETIC_VARIANCE_INFERENCE.R : An R script for genetic variance inference within and across population applying  "RKHS".
      
    ### Data
-   * all.phenotypes.csv : A csv file of the 11 phenotypes and their corresponding phenotypic values for the 738 accessions. Data transformed as described in manuscript.
-   * iris_pedigree.csv :  A csv file of the 11 phenotypes and their corresponding values of their improved varieties.
+   * Accessions_Traits.csv : A csv file of the 11 traits and their corresponding phenotypic values for the 738 accessions. Data transformed as described in manuscript.
    * snps. RData : SNPs matrix in R format.
-   * mite_dtx.RData: Merged matrix of MITE and DTX TIPs in R format.
-   * rlx_rix.RData: Merged matrix of RLX and RIX TIPs in R format.
+   * mitedtx_matrix.RData: Merged matrix of MITE and DTX TIPs in R format.
+   * rlxrix_matrix.RData: Merged matrix of RLX and RIX TIPs in R format.
    * Additive_Matrix.RData : The three additive-relationship matrices for each marker (SNPs, MITE/DTX, RLX/RIX) to be used in RKHS method script. 
-   * PCAs_fixed_effect.RData: A matrix in R format generating by the three markes to be used as fixed effect in any prediction script.
    
