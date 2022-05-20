@@ -1,4 +1,4 @@
-Variety,SNPsubsp,Status,Country,Culm.diameter...1st.internode,culm.strength,flag.leaf.angle,grain.length,grain.width,leaf.length,leaf.senescence,Grain.weight,Salt.injury.at.EC12,Time.to.flowering..from.sowing,panicle.threshability
+Variety,Group,Status,Country,Culm.diameter...1st.internode,culm.strength,flag.leaf.angle,grain.length,grain.width,leaf.length,leaf.senescence,Grain.weight,Salt.injury.at.EC12,Time.to.flowering..from.sowing,panicle.threshability
 IRIS 313-10000,IND,I,South_Korea,1,1,1,8.2,3.1,2,1,2.6,1,4.430816799,1
 IRIS 313-10010,IND,T,Fiji,2,2,5,8,3.1,3,2,2.2,1,4.912654886,2
 IRIS 313-10020,AUS,T,Sri_Lanka,1,2,3,7.9,2.7,3,2,2,2,4.59511985,1
