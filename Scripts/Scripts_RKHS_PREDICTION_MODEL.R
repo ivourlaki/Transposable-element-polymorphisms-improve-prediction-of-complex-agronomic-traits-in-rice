@@ -31,22 +31,15 @@ all.phenotypes.COR<- NULL
 
 
 ### load phenotypes
-all.phenotypes <- read.csv("all.phenotypes.csv", header=TRUE)
+all.phenotypes <- read.csv("Accessions_Traits.csv", header=TRUE)
 
 
-### load PCAs FIXED EFFECTS [738,1:4]. This results by: 
-#1. merging the three markers (snps, mite/dtx, rlx/rix)
-#2. running AGH package to produce on additive matrix
-#3. then we run pca for this additive matrix [738,738] and we keep the eigenvectors for the first 4 components [738,1:4]
-load("PCAs_fixed_effect.RData")
-V1=VAR
-V1<-scale(V1,center=TRUE,scale=TRUE)
 
 
 #---- LIST WITH ALL PHENOTYPES FOR LOOP
-data<- cbind(all.phenotypes[,10:20])
+data<- cbind(all.phenotypes[,5:15])
 names<-names(data)
-list.phen<-list(all.phenotypes[,10:20])
+list.phen<-list(all.phenotypes[,5:15])
 
 
 somePDFPath = "rkhsADMARO_SNPS.pdf"
@@ -62,9 +55,9 @@ for (i in 1:11) {
   y<-scale(y,center=TRUE,scale=TRUE)
   
   yNA=y
-  tst=which(all.phenotypes$SNPsubsp %in% c("ADM", "ARO") & y != "NA")
-  tstADM=which(all.phenotypes$SNPsubsp %in% c("ADM") & y != "NA")
-  tstARO=which(all.phenotypes$SNPsubsp %in% c("ARO") & y != "NA")
+  tst=which(all.phenotypes$Group %in% c("ADM", "ARO") & y != "NA")
+  tstADM=which(all.phenotypes$Group %in% c("ADM") & y != "NA")
+  tstARO=which(all.phenotypes$Group %in% c("ARO") & y != "NA")
   tstNA=which(is.na(y)) #NO USED
   yNA[tst]=NA
   
@@ -124,19 +117,12 @@ all.phenotypes.COR<- NULL
 
 
 ## input new varieties with phenotypes
-iris_pedigree <- read.csv("iris_pedigree.csv", header=TRUE)
-all.phenotypes <- read.csv("all.phenotypes.csv", header=TRUE)
-
-#--- FOR PCAs FIXED EFFECTS based on the pca3matrices script. [738,1:4]
-
-load("PCAs_fixed_effect.RData")
-V1=VAR
-V1<-scale(V1,center=TRUE,scale=TRUE)
+all.phenotypes <- read.csv("Accessions_Traits.csv", header=TRUE)
 
 #---- FOR PHENOTYPES
-data<- cbind(iris_pedigree[,7:17])
+data<- cbind(all.phenotypes[,5:15])
 names<-names(data)
-list.phen<-list(iris_pedigree[,7:17])
+list.phen<-list(all.phenotypes[,5:15])
 
 
 somePDFPath = "rkhsIND_SNPS.pdf"
@@ -150,7 +136,7 @@ for (i in 1:11) {
   y<-(unlist(list.phen[[1]][i]))
   y<-scale(y,center=TRUE,scale=TRUE)
   yNA=y
-  tst=which(all.phenotypes$SNPsubsp == "IND" & iris_pedigree$Status_with_Pedigree.plus.knowledge == "I" &  y != "NA") 
+  tst=which(all.phenotypes$Group == "IND" & all.phenotypes$Status == "I" &  y != "NA") 
   tstNA=which(is.na(y))
   yNA[tst]=NA
   
