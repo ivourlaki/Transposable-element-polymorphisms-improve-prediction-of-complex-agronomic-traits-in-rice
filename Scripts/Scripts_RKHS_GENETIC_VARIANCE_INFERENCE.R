@@ -30,29 +30,14 @@ snps.pca.b.sd  <- NULL
 
 
 ## input phenotypes
-all.phenotypes <- read.csv("all.phenotypes.csv", header=TRUE)
+all.phenotypes <- read.csv("Accessions_Traits.csv", header=TRUE)
 
 
 
 
-#--- FOR ORIGIN FIXED EFFECTS
-SNPsubsp<-all.phenotypes$SNPsubsp
-V=model.matrix(~-1 + factor(SNPsubsp))
-
-### load PCAs FIXED EFFECTS [738,1:4]. This results by: 
-#1. merging the three markers (snps, mite/dtx, rlx/rix)
-#2. running AGH package to produce on additive matrix
-#3. then we run pca for this additive matrix [738,738] and we keep the eigenvectors for the first 4 components [738,1:4]
-load("PCAs_fixed_effect.RData")
-V1=VAR
-V1<-scale(V1,center=TRUE,scale=TRUE)
-
-
-
-
-data<- cbind(all.phenotypes[,10:20])
+data<- cbind(all.phenotypes[,5:15])
 names<-names(data)
-list.phen<-list(all.phenotypes[,10:20])
+list.phen<-list(all.phenotypes[,5:15])
 
 fm= list()
 for (i in 1:11) {
@@ -64,7 +49,7 @@ for (i in 1:11) {
   
   
   
-  fm1 = BGLR(y=y,ETA=list(ETA0=list(X=V,model="FIXED"),ETA01=list(X=V1,model="FIXED"), ETA1=list(K=G_VanRadenPine1,model='RKHS')), nIter=nIter,saveAt=sprintf("./fmgSNPS_y%.0f_",i),verbose=T)
+  fm1 = BGLR(y=y,ETA=list(ETA1=list(K=G_VanRadenPine1,model='RKHS')), nIter=nIter,saveAt=sprintf("./fmgSNPS_y%.0f_",i),verbose=T)
   
   
   varG1=scan(sprintf("./fmgSNPS_y%.0f_ETA_ETA1_varU.dat",i))
